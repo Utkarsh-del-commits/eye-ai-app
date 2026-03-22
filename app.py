@@ -1,18 +1,20 @@
-def eye_ai():
-    print("👁️ Eye AI Assistant")
-    
-    redness = input("Do you have redness? (yes/no): ")
-    pain = input("Do you have eye pain? (yes/no): ")
-    dryness = input("Do you feel dryness? (yes/no): ")
-    blurred = input("Do you have blurred vision? (yes/no): ")
+import streamlit as st
 
+st.title("👁️ Eye AI Assistant")
+
+st.warning("This is not a real doctor. Consult a professional.")
+
+redness = st.selectbox("Do you have redness?", ["no", "yes"])
+pain = st.selectbox("Do you have eye pain?", ["no", "yes"])
+dryness = st.selectbox("Do you feel dryness?", ["no", "yes"])
+blurred = st.selectbox("Do you have blurred vision?", ["no", "yes"])
+
+if st.button("Check Result"):
     if redness == "yes" and pain == "yes":
-        print("Possible condition: Eye Infection or Conjunctivitis")
+        st.success("Possible condition: Eye Infection or Conjunctivitis")
     elif dryness == "yes":
-        print("Possible condition: Dry Eye Syndrome (MGD possible)")
+        st.success("Possible condition: Dry Eye Syndrome (MGD possible)")
     elif blurred == "yes":
-        print("Possible condition: Vision issue (check doctor)")
+        st.success("Possible condition: Vision issue")
     else:
-        print("No major issue detected, but consult doctor if needed")
-
-eye_ai()
+        st.success("No major issue detected")
